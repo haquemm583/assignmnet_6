@@ -9,10 +9,12 @@ function App(){
 
   const [view, setView] = useState("workouts")
   const [excercises, setExcercises] = useState([])
-  function addWorkout(name){
+  function addWorkout(name, reps, weight){
     const newWorkout = {
       id: crypto.randomUUID(),
       name: name,
+      reps: reps,
+      weight: weight,
     }
     setExcercises((previousExcercises) => [
       ...previousExcercises,
