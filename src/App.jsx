@@ -8,7 +8,7 @@ import { useState } from 'react';
 function App(){
 
   const [view, setView] = useState("workouts")
-  const [excercises, setExcercises] = useState([])
+  const [exercises, setExercises] = useState([])
   function addWorkout(name, reps, weight){
     const newWorkout = {
       id: crypto.randomUUID(),
@@ -16,13 +16,16 @@ function App(){
       reps: reps,
       weight: weight,
     }
-    setExcercises((previousExcercises) => [
-      ...previousExcercises,
+    setExercises((previousExercises) => [
+      ...previousExercises,
       newWorkout,
     ])
   }
   function deleteWorkout(id){
-    setExcercises((previousExcercises) => previousExcercises.filter((excercise) => excercise.id !== id))
+    setExercises((previousExercises) => previousExercises.filter((exercise) => exercise.id !== id))
+  }
+  function clearWorkouts(){
+    setExercises([])
   }
   return (
     <main className="mx-auto max-w-2xl px-6 py-12 sm:py-20">
@@ -38,7 +41,7 @@ function App(){
       {view ==="workouts" ? (
         <>
           <WorkoutForm onAddWorkout={addWorkout}/>
-          <WorkoutList excercises={excercises} onDeleteWorkout={deleteWorkout}/>
+          <WorkoutList exercises={exercises} onDeleteWorkout={deleteWorkout} onClearWorkouts={clearWorkouts}/>
         </>
       ) : (
         <About/>
