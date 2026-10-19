@@ -1,0 +1,8 @@
+I organized hte workout tracker with App being the parent component, and then having seperate components for the Header, WorkoutForm,
+WorkoutList, WorkoutItem, and About components. App stores the excercises array and gives it ot WorkoutList, which then gives each 
+exercise to WorkoutITem using props. I also haev callback functions passed down through props so the child components can perform operations. the form uses useState
+to control the exercise names, reps, and weights. And uses onChange to update those values. When the form is submitted, the page is prevfented from reloading, the 
+name is checked, the reps and weights are turned into numbers, and the paren function is called to add the exercise. The inputs are then cleared. The different views
+are rendered usign a conditional statement. I utilized Gpt6.1-sol to help me with the callback functions being passed. I also used it to help me understand how to 
+use tailwind CSS, and to learn a lot of the diffrent styling elements and how they are typed. Built in VS-Code copilot tab-complete was utilized throughout in 
+order to speed up development. 
