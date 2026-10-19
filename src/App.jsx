@@ -1,7 +1,7 @@
-import Header from './components/Header'
-import WorkoutForm from './components/WorkoutForm';
-import WorkoutList from './components/WorkoutList';
-import About from './components/About';
+import Header from './components/layout/Header'
+import WorkoutForm from './components/workouts/WorkoutForm';
+import WorkoutList from './components/workouts/WorkoutList';
+import About from './components/about/About';
 import { useState } from 'react';
 
 
@@ -21,6 +21,9 @@ function App(){
       newWorkout,
     ])
   }
+  function deleteWorkout(id){
+    setExcercises((previousExcercises) => previousExcercises.filter((excercise) => excercise.id !== id))
+  }
   return (
     <main className="mx-auto max-w-2xl px-6 py-12 sm:py-20">
       <Header title="Workout Tracker"/>
@@ -35,7 +38,7 @@ function App(){
       {view ==="workouts" ? (
         <>
           <WorkoutForm onAddWorkout={addWorkout}/>
-          <WorkoutList excercises={excercises}/>
+          <WorkoutList excercises={excercises} onDeleteWorkout={deleteWorkout}/>
         </>
       ) : (
         <About/>

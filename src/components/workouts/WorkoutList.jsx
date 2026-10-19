@@ -1,6 +1,6 @@
 import WorkoutItem from './WorkoutItem';
 
-function WorkoutList({excercises}){
+function WorkoutList({excercises, onDeleteWorkout}){
     return (
         <section className="mt-8">
             <h2 className="mb-3 text-xl font-medium">Your exercises</h2>
@@ -9,7 +9,7 @@ function WorkoutList({excercises}){
             ) : (
                 <ul>
                     {excercises.map((excercise) => (
-                        <WorkoutItem key={excercise.id} excercise={excercise}/>
+                        <WorkoutItem key={excercise.id} excercise={excercise} onDeleteWorkout={onDeleteWorkout}/>
                     ))}
                 </ul>
             )}
