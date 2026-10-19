@@ -1,5 +1,6 @@
 import Header from './components/Header'
 import WorkoutForm from './components/WorkoutForm';
+import WorkoutList from './components/WorkoutList';
 import About from './components/About';
 import { useState } from 'react';
 
@@ -30,7 +31,10 @@ function App(){
         </button>
       </nav>
       {view ==="workouts" ? (
-        <WorkoutForm onAddWorkout={addWorkout}/>
+        <>
+          <WorkoutForm onAddWorkout={addWorkout}/>
+          <WorkoutList excercises={excercises}/>
+        </>
       ) : (
         <About/>
       )}
